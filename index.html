@@ -41,6 +41,7 @@
         <div class="hero__intro">
           <h1 class="hero__title">Hi, I am Hima.</h1>
           <p class="hero__tagline">A Melbourne-based web developer who loves aesthetics and is always learning.</p>
+          <a href="#projects" class="hero__cta">View My Projects</a>
         </div>
 
         <figure class="hero__media">
@@ -69,7 +70,7 @@
       </section>
 
       <section id="tech-stack" class="main__section techstack">
-        <h2 class="techstack__title">Tech stack</h2>
+        <h2 class="techstack__title">My Tech Stack</h2>
         <div class="techstack__grid">
           <article class="techstack__item">HTML</article>
           <article class="techstack__item">JavaScript</article>
@@ -80,29 +81,82 @@
 
       <section id="projects" class="main__section projects">
         <h2 class="projects__title">Projects</h2>
-        <article class="project">
-          <h3 class="project__title">Starter portfolio project</h3>
-          <p class="project__description">
-            A starter project from my _nology training that showcases my core HTML, CSS/SCSS and JavaScript skills. I am levelling up every day, so
-            this project will keep growing with me.
-          </p>
-        </article>
-        <article class="project">
-          <h3 class="project__title">CodeMyUI</h3>
-          <p class="project__description">
-            CodeMyUI is a design inspiration hub where I curate standout web design snippets and UI ideas shared by creators across platforms like
-            CodePen and JSFiddle.
-          </p>
-        </article>
-        <article class="project">
-          <h3 class="project__title">Periodic Table</h3>
-          <p class="project__description">
-            My daughter Skye has a school programme from Year One that encourages kids to explore new things, and one of the topics was the periodic
-            table. So we built a little website together to help her learn all the elements. Along the way, I ended up relearning them too! The site
-            has interactive bits like flashcards, quizzes, and even a periodic-table song, all designed to make it fun and easy for Skye to remember
-            the elements.
-          </p>
-        </article>
+
+        <div class="projects__grid">
+          <article class="project-card">
+            <input type="checkbox" id="project-1-toggle" class="project-card__toggle" />
+
+            <label for="project-1-toggle" class="project-card__click-area"></label>
+
+            <div class="project-card__inner">
+              <div class="project-card__face project-card__face--front">
+                <figure class="project-card__image-wrapper">
+                  <img src="assets/hima-project.png" alt="Hima Project" class="project-card__image" />
+                </figure>
+                <h3 class="project-card__title">Starter Portfolio</h3>
+              </div>
+
+              <div class="project-card__face project-card__face--back">
+                <label for="project-1-toggle" class="project-card__flip-back" aria-label="Flip card back"> ✕ </label>
+                <h3 class="project-card__title project-card__title--back">Starter Portfolio</h3>
+                <p class="project-card__description">
+                  A simple portfolio I built during my _nology training, showcasing my HTML, CSS and JS foundations.
+                </p>
+                <a href="https://github.com/HimaVincent/My-Portfolio/" class="project-card__button" target="_blank" rel="noopener noreferrer"
+                  >View project</a
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <input type="checkbox" id="project-2-toggle" class="project-card__toggle" />
+
+            <label for="project-2-toggle" class="project-card__click-area"></label>
+
+            <div class="project-card__inner">
+              <div class="project-card__face project-card__face--front">
+                <figure class="project-card__image-wrapper">
+                  <img src="assets/codemyui.png" alt="CodeMyUI Website" class="project-card__image" />
+                </figure>
+                <h3 class="project-card__title">CodeMyUI</h3>
+              </div>
+
+              <div class="project-card__face project-card__face--back">
+                <label for="project-2-toggle" class="project-card__flip-back" aria-label="Flip card back"> ✕ </label>
+                <h3 class="project-card__title project-card__title--back">CodeMyUI</h3>
+                <p class="project-card__description">
+                  A curated UI inspiration hub featuring creative frontend snippets from CodePen, JSFiddle and more.
+                </p>
+                <a href="https://codemyui.com/" class="project-card__button" target="_blank" rel="noopener noreferrer">Visit project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <input type="checkbox" id="project-3-toggle" class="project-card__toggle" />
+
+            <label for="project-3-toggle" class="project-card__click-area"></label>
+
+            <div class="project-card__inner">
+              <div class="project-card__face project-card__face--front">
+                <figure class="project-card__image-wrapper">
+                  <img src="assets/periodic-table.png" alt="Periodic Table Project" class="project-card__image" />
+                </figure>
+                <h3 class="project-card__title">Periodic Table</h3>
+              </div>
+
+              <div class="project-card__face project-card__face--back">
+                <label for="project-3-toggle" class="project-card__flip-back" aria-label="Flip card back"> ✕ </label>
+                <h3 class="project-card__title project-card__title--back">Periodic Table</h3>
+                <p class="project-card__description">A learning website with flashcards and quizzes to help my daughter learn the elements.</p>
+                <a href="https://skyegeorge.com/periodic-table/" class="project-card__button" target="_blank" rel="noopener noreferrer"
+                  >Visit project</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
 
@@ -114,13 +168,30 @@
         </p>
 
         <div class="footer__socials">
-          <a class="footer__social-link" href="https://github.com/hima" target="_blank" rel="noopener noreferrer"> GitHub </a>
-          <a class="footer__social-link" href="https://linkedin.com/in/hima" target="_blank" rel="noopener noreferrer"> LinkedIn </a>
+          <a class="footer__social-link" href="https://github.com/HimaVincent" target="_blank" rel="noopener noreferrer"> GitHub </a>
+          <a class="footer__social-link" href="https://www.linkedin.com/in/himavincent/" target="_blank" rel="noopener noreferrer"> LinkedIn </a>
           <a class="footer__social-link" href="https://www.codewars.com/users/HimaVincent" target="_blank" rel="noopener noreferrer"> Codewars</a>
         </div>
 
         <small class="footer__copyright"> &copy; Hima 2025 | All rights reserved. </small>
       </div>
     </footer>
+    <script>
+      const navToggle = document.getElementById("nav-toggle");
+      const navLinks = document.querySelectorAll(".header__nav-link");
+      const overlay = document.querySelector(".overlay");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navToggle.checked = false;
+        });
+      });
+
+      if (overlay) {
+        overlay.addEventListener("click", () => {
+          navToggle.checked = false;
+        });
+      }
+    </script>
   </body>
 </html>
