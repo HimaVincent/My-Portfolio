@@ -1,0 +1,34 @@
+@use "variables" as var;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: var.$font-body;
+  background-color: var.$color-bg;
+  color: var.$color-text;
+}
+
+h1,
+h2 {
+  font-family: var.$font-heading;
+  color: var.$color-heading;
+}
+
+h2 {
+  font-size: 4rem;
+  margin: 0 0.7rem;
+}
+
+.main__section {
+  padding: 0 2rem;
+  margin: 2rem 0;
+}

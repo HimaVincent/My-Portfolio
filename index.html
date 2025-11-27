@@ -4,52 +4,103 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hima Vincent - Portfolio</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:ital@0;1&family=Meddon&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <header class="header">
-      <nav class="header__nav nav" aria-label="Main Navigation">
-        <a class="nav__logo" href="#home">Home</a>
-        <ul class="nav__list">
-          <li class="nav__item"><a class="nav__link" href="#about">About</a></li>
-          <li class="nav__item"><a class="nav__link" href="#tech-stack">Tech Stack</a></li>
-          <li class="nav__item"><a class="nav__link" href="#projects">Projects</a></li>
-          <li class="nav__item"><a class="nav__link" href="#contact">Contact</a></li>
-          <li class="nav__item"><a class="nav__link" href="assets/hima-resume.pdf" target="_blank" rel="noopener noreferrer"> Résumé </a></li>
+      <nav class="header__nav" aria-label="Main Navigation">
+        <a class="header__logo" href="#home" aria-label="Go to home">HV</a>
+        <input type="checkbox" id="nav-toggle" class="header__checkbox" aria-hidden="true" />
+
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a class="header__nav-link" href="#about">About</a></li>
+          <li class="header__nav-item"><a class="header__nav-link" href="#tech-stack">Tech Stack</a></li>
+          <li class="header__nav-item"><a class="header__nav-link" href="#projects">Projects</a></li>
+          <li class="header__nav-item"><a class="header__nav-link" href="#contact">Contact</a></li>
+          <li class="header__nav-item">
+            <a class="header__nav-link" href="assets/hima-resume.pdf" target="_blank" rel="noopener noreferrer"> Résumé </a>
+          </li>
         </ul>
+        <label for="nav-toggle" class="header__burger"> <i class="fa-solid fa-bars"></i></label>
+        <div class="overlay"></div>
       </nav>
     </header>
 
     <main class="main">
-      <section id="home" class="main__hero">
-        <h1 class="main__hero-title">Hi, I am Hima</h1>
-        <p class="main__hero-tagline">A Melbourne-based web developer who loves aesthetics and is always learning.</p>
+      <section id="home" class="main__section hero">
+        <div class="hero__intro">
+          <h1 class="hero__title">Hi, I am Hima.</h1>
+          <p class="hero__tagline">A Melbourne-based web developer who loves aesthetics and is always learning.</p>
+        </div>
+
+        <figure class="hero__media">
+          <img class="hero__image" src="assets/hima.jpg" alt="Hima" />
+        </figure>
       </section>
 
-      <section id="about" class="main__section main__section--about">
-        <h2 class="main__section-title">About me</h2>
-        <p class="main__section-text">
-          I am a developer in training through _nology, with a background in tech and a strong love for clean, aesthetic design. This portfolio will
-          grow as I keep learning and building.
+      <section id="about" class="main__section about">
+        <h2 class="about__title">A bit about me...</h2>
+        <p class="about__text">
+          I'm a developer in training through _nology, building on my tech foundation and my love for clean, aesthetic design. I completed my
+          Bachelor's in Electronics and Instrumentation, which eventually led me into the tech industry as a QA Analyst. Along the way, I also ran and
+          curated content for my own design-inspiration websites, a space where I fine-tuned my eye for detail, user experience, and what makes
+          digital content genuinely engaging.
+        </p>
+
+        <p class="about__text">
+          I'm a big foodie at heart. I love discovering new places to eat and experimenting in the kitchen, and trying new recipes has always come
+          naturally to me. I also enjoy travelling (even though I haven't explored as much as I'd like to yet), unwinding with films and TV shows, and
+          dreaming up interior design ideas. Anything aesthetic instantly catches my attention.
+        </p>
+
+        <p class="about__text">
+          This portfolio is a reflection of everything I'm learning and building, and it will keep evolving as I grow as a developer and as a creator.
         </p>
       </section>
 
-      <section id="tech-stack" class="main__section main__section--tech">
-        <h2 class="main__section-title">Tech stack</h2>
-        <ul class="main__tech-list">
-          <li class="main__tech-item">HTML</li>
-          <li class="main__tech-item">CSS / SCSS</li>
-          <li class="main__tech-item">JavaScript</li>
-        </ul>
+      <section id="tech-stack" class="main__section techstack">
+        <h2 class="techstack__title">Tech stack</h2>
+        <div class="techstack__grid">
+          <article class="techstack__item">HTML</article>
+          <article class="techstack__item">JavaScript</article>
+          <article class="techstack__item">CSS</article>
+          <article class="techstack__item">SCSS</article>
+        </div>
       </section>
 
-      <section id="projects" class="main__section main__section--projects">
-        <h2 class="main__section-title">Projects</h2>
+      <section id="projects" class="main__section projects">
+        <h2 class="projects__title">Projects</h2>
         <article class="project">
           <h3 class="project__title">Starter portfolio project</h3>
           <p class="project__description">
             A starter project from my _nology training that showcases my core HTML, CSS/SCSS and JavaScript skills. I am levelling up every day, so
             this project will keep growing with me.
+          </p>
+        </article>
+        <article class="project">
+          <h3 class="project__title">CodeMyUI</h3>
+          <p class="project__description">
+            CodeMyUI is a design inspiration hub where I curate standout web design snippets and UI ideas shared by creators across platforms like
+            CodePen and JSFiddle.
+          </p>
+        </article>
+        <article class="project">
+          <h3 class="project__title">Periodic Table</h3>
+          <p class="project__description">
+            My daughter Skye has a school programme from Year One that encourages kids to explore new things, and one of the topics was the periodic
+            table. So we built a little website together to help her learn all the elements. Along the way, I ended up relearning them too! The site
+            has interactive bits like flashcards, quizzes, and even a periodic-table song, all designed to make it fun and easy for Skye to remember
+            the elements.
           </p>
         </article>
       </section>
