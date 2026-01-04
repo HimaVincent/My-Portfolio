@@ -350,7 +350,6 @@ h1 {
   flex: 0 0 calc(50% - 2rem);
   display: flex;
   justify-content: center;
-  align-items: flex-end;
   margin-bottom: 1rem;
 }
 
