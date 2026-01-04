@@ -1,0 +1,57 @@
+@use "variables" as var;
+@use "media-queries" as q;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1200px;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  font-family: var.$font-body;
+  background: linear-gradient(var.$color-bg-line 1px, transparent 1px), linear-gradient(90deg, var.$color-bg-line 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-color: var.$color-bg;
+  color: var.$color-text;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var.$font-heading;
+  color: var.$color-heading;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.3rem;
+  @include q.laptop {
+    font-size: 4rem;
+    margin: 1rem;
+  }
+}
+
+@include q.laptop {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+.main,
+.main__section {
+  flex: 1;
+  padding: 0 2rem;
+}
+
+.is-hidden {
+  display: none;
+}

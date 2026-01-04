@@ -1,0 +1,7 @@
+@use "variables" as var;
+
+@mixin card-border($bw: 2px, $bs: dashed, $bc: var.$color-dark) {
+  background-color: var.$color-bg-light;
+  border: $bw $bs $bc;
+  border-radius: 8px;
+}

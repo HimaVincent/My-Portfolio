@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman - Hima Vincent</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:ital@0;1&family=Meddon&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav" aria-label="Main Navigation">
+        <a class="header__logo" href="https://himavincent.com/" aria-label="Go to home">HV</a>
+      </nav>
+    </header>
+    <main class="main">
+      <h1 class="main__title">Hangman</h1>
+      <section class="game-board main__section">
+        <h2 id="game-word" class="game-board__word"></h2>
+        <h2 id="game-message"></h2>
+        <div id="game-stats" class="game-stats">
+          <div class="game-stats__item">
+            <span class="game-stats__label">Length:</span>
+            <span class="game-stats__value" id="stat-length"></span>
+          </div>
+
+          <div class="game-stats__item">
+            <span class="game-stats__label">Tries:</span>
+            <span class="game-stats__value" id="stat-tries"></span>
+          </div>
+
+          <div class="game-stats__item">
+            <span class="game-stats__label">Time:</span>
+            <span class="game-stats__value" id="stat-time"></span>
+          </div>
+        </div>
+
+        <div class="hangman-stage"></div>
+      </section>
+      <section class="keyboard main__section">
+        <div class="keyboard__frame"></div>
+        <div class="keyboard__special-keys"><button class="keyboard__key keyboard__reset">Play Again</button></div>
+      </section>
+    </main>
+    <footer id="contact" class="footer" aria-label="Contact">
+      <div class="footer__content">
+        <p class="footer__email">
+          Email:
+          <a class="footer__email-link" href="mailto:himavincent@outlook.com"> himavincent@outlook.com </a>
+        </p>
+
+        <div class="footer__socials">
+          <a class="footer__social-link" href="https://github.com/HimaVincent" target="_blank" rel="noopener noreferrer"> GitHub </a>
+          <a class="footer__social-link" href="https://www.linkedin.com/in/himavincent/" target="_blank" rel="noopener noreferrer"> LinkedIn </a>
+          <a class="footer__social-link" href="https://www.codewars.com/users/HimaVincent" target="_blank" rel="noopener noreferrer"> Codewars</a>
+        </div>
+
+        <small class="footer__copyright"> &copy; Hima 2025 | All rights reserved. </small>
+      </div>
+    </footer>
+    <script src="js/main.js" type="module"></script>
+  </body>
+</html>

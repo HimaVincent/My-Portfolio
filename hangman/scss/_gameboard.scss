@@ -1,0 +1,75 @@
+@use "variables" as var;
+@use "media-queries" as q;
+@use "mixins";
+
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+  @include mixins.card-border;
+}
+
+.game-board__word,
+#game-message {
+  font-size: 2rem;
+  flex: 0 0 100%;
+  text-align: center;
+  margin: auto;
+  @include q.laptop {
+    font-size: 3rem;
+  }
+}
+
+#game-message {
+  color: var.$color-message;
+}
+
+.game-stats {
+  flex: 0 0 calc(50% - 2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include mixins.card-border(1px, solid, var.$color-text);
+    padding: 0.5rem;
+    margin: 0 auto;
+    min-width: 90px;
+    @include q.tablet {
+      font-size: 1.5rem;
+      min-width: 160px;
+    }
+  }
+  &__value {
+    font-weight: bold;
+  }
+
+  &__label {
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+  }
+  @include q.tablet {
+    @include mixins.card-border(1px, solid, var.$color-text);
+  }
+}
+
+.hangman-stage {
+  @include mixins.card-border(1px, solid, var.$color-text);
+  flex: 0 0 calc(50% - 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+img {
+  max-width: 90%;
+  padding: 1rem;
+}
