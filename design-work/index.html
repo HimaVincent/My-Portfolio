@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Interior Design Work</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <style>
+      /* --- VARIABLES --- */
+      :root {
+        --bg-color: #fffdf5;
+        --border-color: #000000;
+        --shadow-offset: 6px;
+
+        /* Pastel Palette */
+        --color-1: #ffd6e0; /* Pink */
+        --color-2: #c1e1c1; /* Mint */
+        --color-3: #c4d0f5; /* Periwinkle */
+        --color-4: #fdfd96; /* Butter Yellow */
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        /* Sharp Black Dots for Body */
+        background-image: radial-gradient(#000 1px, transparent 1px);
+        background-size: 20px 20px;
+        font-family: "Space Mono", monospace;
+        color: var(--border-color);
+        overflow-x: hidden;
+      }
+
+      /* --- HEADER --- */
+      header {
+        max-width: 800px;
+        margin: 60px auto 40px;
+        text-align: center;
+        padding: 20px;
+        background: #fff;
+        border: 3px solid var(--border-color);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--border-color);
+        transform: rotate(-1deg);
+      }
+
+      h1 {
+        font-family: "Patrick Hand", cursive;
+        font-size: 3.5rem;
+        margin: 0;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      p.subtitle {
+        margin-top: 10px;
+        font-size: 1rem;
+        background: var(--color-4);
+        display: inline-block;
+        padding: 5px 10px;
+        border: 2px solid var(--border-color);
+      }
+
+      /* --- MASONRY GRID --- */
+      .gallery-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 20px;
+        column-count: 3;
+        column-gap: 30px;
+      }
+
+      @media (max-width: 900px) {
+        .gallery-container {
+          column-count: 2;
+        }
+      }
+      @media (max-width: 600px) {
+        .gallery-container {
+          column-count: 1;
+        }
+      }
+
+      /* --- GALLERY ITEMS --- */
+      .gallery-item {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        background: white;
+        border: 3px solid var(--border-color);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--border-color);
+        margin-bottom: 40px;
+        padding: 15px 15px 50px 15px;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        cursor: pointer;
+        border-radius: 2px;
+        transform: translateZ(0);
+      }
+
+      .gallery-item:nth-child(odd) {
+        transform: rotate(1deg);
+      }
+      .gallery-item:nth-child(even) {
+        transform: rotate(-1deg);
+      }
+
+      .gallery-item:hover {
+        transform: translate(4px, 4px) rotate(0deg);
+        box-shadow: 2px 2px 0px 0px var(--border-color);
+        z-index: 10;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        border: 2px solid var(--border-color);
+        display: block;
+        filter: grayscale(10%);
+      }
+
+      .card-caption {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        font-family: "Patrick Hand", cursive;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .tag-sticker {
+        position: absolute;
+        top: -12px;
+        right: -10px;
+        background: var(--color-4);
+        border: 2px solid var(--border-color);
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        transform: rotate(5deg);
+        box-shadow: 2px 2px 0 var(--border-color);
+        z-index: 5;
+      }
+
+      .gallery-item:nth-child(3n + 1) .tag-sticker {
+        background: var(--color-1);
+      }
+      .gallery-item:nth-child(3n + 2) .tag-sticker {
+        background: var(--color-2);
+      }
+      .gallery-item:nth-child(3n + 3) .tag-sticker {
+        background: var(--color-3);
+      }
+
+      /* --- LIGHTBOX (UPDATED BACKGROUND) --- */
+      .lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        /* Background Color: Warm White (98% opacity) */
+        background-color: rgba(255, 253, 245, 0.98);
+
+        /* Background Pattern: Light Grey Dots (rgba 0,0,0,0.15) */
+        background-image: radial-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+        background-size: 20px 20px;
+
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lb-window {
+        background: white;
+        border: 4px solid var(--border-color);
+        box-shadow: 15px 15px 0px 0px var(--border-color);
+        width: 90%;
+        max-width: 1100px;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      @keyframes popIn {
+        from {
+          transform: scale(0.95);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .lb-header-bar {
+        background: var(--color-3);
+        border-bottom: 3px solid var(--border-color);
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .lb-close-btn {
+        background: var(--color-1);
+        border: 2px solid black;
+        font-family: "Space Mono", monospace;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px 12px;
+        box-shadow: 3px 3px 0 black;
+      }
+      .lb-close-btn:active {
+        transform: translate(3px, 3px);
+        box-shadow: 0 0 0 black;
+      }
+
+      .lb-content {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+      }
+
+      .lb-media-box {
+        flex: 2;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 3px solid black;
+        position: relative;
+      }
+
+      .lb-media-box img,
+      .lb-media-box video {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+
+      .lb-media-box iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: white;
+      }
+
+      .lb-details {
+        flex: 1;
+        padding: 40px;
+        background: #fff;
+        overflow-y: auto;
+      }
+
+      .lb-details h2 {
+        font-family: "Patrick Hand", cursive;
+        font-size: 2.5rem;
+        margin-top: 0;
+        border-bottom: 2px dashed black;
+        padding-bottom: 10px;
+      }
+
+      /* --- BUTTONS --- */
+      .lb-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: white;
+        border: 3px solid black;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 2rem;
+        cursor: pointer;
+        box-shadow: 6px 6px 0 black;
+        z-index: 10001;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .prev-btn {
+        left: 30px;
+        background: var(--color-1);
+      }
+      .next-btn {
+        right: 30px;
+        background: var(--color-3);
+      }
+      .lb-nav-btn:active {
+        transform: translateY(-50%) translate(4px, 4px);
+        box-shadow: 0 0 0 black;
+      }
+
+      .lightbox:not(.active) .lb-nav-btn {
+        display: none !important;
+      }
+
+      @media (max-width: 900px) {
+        .lb-content {
+          flex-direction: column;
+        }
+        .lb-media-box {
+          border-right: none;
+          border-bottom: 3px solid black;
+          min-height: 50vh;
+        }
+        .lb-nav-btn {
+          display: none;
+        }
+        .lb-details {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>My Interior Design Work</h1>
+      <p class="subtitle">Costal . Minimal . Cottage</p>
+    </header>
+
+    <div class="gallery-container" id="gallery">
+      <!-- Javascript fills this -->
+    </div>
+
+    <!-- Lightbox Overlay -->
+    <div class="lightbox" id="lightbox">
+      <button class="lb-nav-btn prev-btn" id="lb-prev">&larr;</button>
+      <button class="lb-nav-btn next-btn" id="lb-next">&rarr;</button>
+
+      <div class="lb-window" id="lb-window">
+        <div class="lb-header-bar">
+          <div style="font-size: 0.8rem; font-weight: bold">My Work</div>
+          <button class="lb-close-btn" id="lb-close">CLOSE</button>
+        </div>
+
+        <div class="lb-content">
+          <div class="lb-media-box" id="lb-media">
+            <!-- Dynamic Media -->
+          </div>
+          <div class="lb-details">
+            <h2 id="lb-title">Project Title</h2>
+            <p id="lb-desc">Description...</p>
+            <div style="margin-top: 30px">
+              <span id="lb-tag" style="background: var(--color-4); border: 2px solid black; padding: 5px 10px; font-weight: bold; font-size: 0.8rem"
+                >TAG</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // --- CONTENT DATA ---
+      const items = [
+        {
+          type: "image",
+          src: "kitchen.jpg",
+          title: "Kitchen",
+          desc: "A xxxxxxxxxxxxx xxxxx xxxxx xxxxxxxxxxxxx",
+          tag: "KITCHEN",
+        },
+        {
+          type: "image",
+          src: "dining.jpg",
+          title: "Dining",
+          desc: "A xxxxxxxxxxxxx xxxxx xxxxx xxxxxxxxxxxxx",
+          tag: "DINING",
+        },
+        {
+          type: "image",
+          src: "hima.jpg",
+          title: "Me in my kitchen",
+          desc: "A xxxxxxxxxxxxx xxxxx xxxxx xxxxxxxxxxxxx",
+          tag: "KITCHEN",
+        },
+        {
+          type: "video",
+          src: "https://videos.pexels.com/video-files/7578546/7578546-uhd_1440_2732_25fps.mp4",
+          cover: "https://picsum.photos/seed/vid2/800/1200",
+          title: "Garden Path",
+          desc: "A raw video file uploaded directly to the site.",
+          tag: "VIDEO",
+        },
+        {
+          type: "image",
+          src: "bedroom.jpg",
+          title: "Bedroom",
+          desc: "A xxxxxxxxxxxxx xxxxx xxxxx xxxxxxxxxxxxx",
+          tag: "BEDROOM",
+        },
+        {
+          type: "instagram",
+          src: "https://www.instagram.com/reel/CmiByKsI3crhey-b5pDqwicvyM_xaWibkVXovQ0/embed/",
+          cover: "xmas-2022.png",
+          title: "Christmas 2022",
+          desc: "Our yummy Christmas tree from 2022, decorated with dehydrated oranges, gingerbread people, candy canes, and cherries.",
+          tag: "IG REEL",
+        },
+      ];
+
+      // --- BUILD GALLERY ---
+      const gallery = document.getElementById("gallery");
+
+      items.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "gallery-item";
+
+        const displayImg = item.type === "image" ? item.src : item.cover;
+
+        let stickerStyle = "";
+        if (item.type === "instagram") stickerStyle = "background:#E1306C; color:white;";
+        if (item.type === "video") stickerStyle = "background:#000; color:white;";
+
+        card.innerHTML = `
+                <div class="tag-sticker" style="${stickerStyle}">${item.tag}</div>
+                <img src="${displayImg}" alt="${item.title}">
+                <div class="card-caption">${item.title}</div>
+            `;
+
+        card.addEventListener("click", () => openLightbox(index));
+        gallery.appendChild(card);
+      });
+
+      // --- LIGHTBOX FUNCTIONS ---
+      const lightbox = document.getElementById("lightbox");
+      const lbMedia = document.getElementById("lb-media");
+
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        updateContent();
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "auto";
+        lbMedia.innerHTML = "";
+      }
+
+      function updateContent() {
+        const item = items[currentIndex];
+
+        document.getElementById("lb-title").textContent = item.title;
+        document.getElementById("lb-desc").textContent = item.desc;
+        document.getElementById("lb-tag").textContent = item.tag;
+
+        document.querySelector(".lb-header-bar").style.backgroundColor = `var(--color-${(currentIndex % 4) + 1})`;
+
+        lbMedia.innerHTML = "";
+
+        if (item.type === "instagram") {
+          lbMedia.innerHTML = `<iframe src="${item.src}" frameborder="0" scrolling="no" allowtransparency="true"></iframe>`;
+        } else if (item.type === "video") {
+          const vid = document.createElement("video");
+          vid.src = item.src;
+          vid.controls = true;
+          vid.autoplay = true;
+          lbMedia.appendChild(vid);
+        } else {
+          const img = document.createElement("img");
+          img.src = item.src;
+          lbMedia.appendChild(img);
+        }
+      }
+
+      document.getElementById("lb-close").onclick = closeLightbox;
+      document.getElementById("lb-next").onclick = (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % items.length;
+        updateContent();
+      };
+      document.getElementById("lb-prev").onclick = (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateContent();
+      };
+      lightbox.onclick = (e) => {
+        if (e.target === lightbox) closeLightbox();
+      };
+
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("active")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") document.getElementById("lb-next").click();
+        if (e.key === "ArrowLeft") document.getElementById("lb-prev").click();
+      });
+    </script>
+  </body>
+</html>
