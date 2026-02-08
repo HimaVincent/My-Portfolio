@@ -69,6 +69,153 @@
         border: 2px solid var(--border-color);
       }
 
+      /* --- STICKY FILTERS --- */
+      .filter-toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        padding: 0 20px;
+      }
+
+      .filter-toolbar-inner {
+        max-width: 1400px;
+        margin: 0 auto 20px;
+        background: #fff;
+        border: 3px solid var(--border-color);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--border-color);
+        padding: 12px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .filter-head {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .filter-title {
+        font-family: "Patrick Hand", cursive;
+        font-size: 1.4rem;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .results-count-compact {
+        font-size: 0.8rem;
+        font-weight: bold;
+        opacity: 0.8;
+      }
+
+      .filter-toggle {
+        border: 2px solid var(--border-color);
+        background: var(--color-3);
+        font-family: "Space Mono", monospace;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 8px 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .filter-toggle-icon {
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
+
+      .filter-toggle[aria-expanded="false"] .filter-toggle-icon {
+        transform: rotate(-90deg);
+      }
+
+      .filter-panel {
+        display: grid;
+        gap: 12px;
+      }
+
+      .filter-toolbar-inner.is-collapsed .filter-panel {
+        display: none;
+      }
+
+      .filter-top-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .filter-search {
+        width: 100%;
+        border: 2px solid var(--border-color);
+        font-family: "Space Mono", monospace;
+        font-size: 0.95rem;
+        padding: 10px 12px;
+        background: #fff;
+      }
+
+      .filter-clear {
+        border: 2px solid var(--border-color);
+        background: var(--color-4);
+        font-family: "Space Mono", monospace;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px 12px;
+        white-space: nowrap;
+      }
+
+      .filter-groups {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .filter-group {
+        border: 2px dashed var(--border-color);
+        padding: 10px;
+        background: #fff;
+      }
+
+      .filter-group-title {
+        font-family: "Patrick Hand", cursive;
+        font-size: 1.2rem;
+        margin: 0 0 8px;
+      }
+
+      .filter-chip-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .filter-chip {
+        border: 2px solid var(--border-color);
+        background: var(--tag-color, #fff);
+        color: var(--tag-text, #111);
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px 8px;
+        opacity: 0.25;
+      }
+
+      .filter-chip.is-include {
+        opacity: 1;
+        box-shadow: 3px 3px 0 var(--border-color);
+      }
+
+      .filter-chip.is-exclude {
+        opacity: 1;
+        text-decoration: line-through;
+        box-shadow: inset 0 0 0 2px var(--border-color);
+      }
+
+      .results-count {
+        font-size: 0.85rem;
+        font-weight: bold;
+      }
+
       /* --- MASONRY GRID --- */
       .gallery-container {
         max-width: 1400px;
@@ -78,14 +225,60 @@
         column-gap: 30px;
       }
 
+      .gallery-container.is-empty {
+        column-count: 1;
+      }
+
       @media (max-width: 900px) {
+        .filter-toolbar {
+          padding: 0 16px;
+        }
+        .filter-head {
+          grid-template-columns: 1fr auto;
+        }
+        .results-count-compact {
+          grid-column: 1 / -1;
+        }
+        .filter-groups {
+          grid-template-columns: 1fr;
+        }
         .gallery-container {
           column-count: 2;
+          padding: 16px;
+          column-gap: 20px;
         }
       }
       @media (max-width: 600px) {
+        .filter-toolbar {
+          padding: 0 12px;
+        }
+        .filter-toolbar-inner {
+          padding: 12px;
+        }
+        .filter-title {
+          font-size: 1.2rem;
+        }
+        .filter-top-row {
+          grid-template-columns: 1fr;
+        }
         .gallery-container {
           column-count: 1;
+          padding: 25px;
+        }
+        header {
+          margin: 30px 16px 24px;
+          transform: rotate(0deg);
+        }
+        h1 {
+          font-size: 2.4rem;
+        }
+        .gallery-item {
+          box-shadow: 4px 4px 0px 0px var(--border-color);
+          margin-bottom: 30px;
+        }
+        .gallery-item:nth-child(odd),
+        .gallery-item:nth-child(even) {
+          transform: rotate(0deg);
         }
       }
 
@@ -138,9 +331,7 @@
       }
 
       .tag-sticker {
-        position: absolute;
-        top: -12px;
-        right: -10px;
+        position: static;
         background: var(--color-4);
         border: 2px solid var(--border-color);
         padding: 5px 10px;
@@ -148,6 +339,16 @@
         font-weight: bold;
         transform: rotate(5deg);
         box-shadow: 2px 2px 0 var(--border-color);
+      }
+
+      .tag-sticker-wrap {
+        position: absolute;
+        top: -12px;
+        right: -10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-end;
         z-index: 5;
       }
 
@@ -279,6 +480,32 @@
         padding-bottom: 10px;
       }
 
+      .lb-tags {
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .lb-tag-pill {
+        background: var(--color-4);
+        border: 2px solid black;
+        padding: 5px 10px;
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+
+      .empty-state {
+        background: #fff;
+        border: 3px solid var(--border-color);
+        box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--border-color);
+        padding: 24px;
+        font-weight: bold;
+        width: 100%;
+        break-inside: avoid;
+        column-span: all;
+      }
+
       /* --- BUTTONS --- */
       .lb-nav-btn {
         position: absolute;
@@ -315,6 +542,10 @@
       }
 
       @media (max-width: 900px) {
+        .lb-window {
+          width: calc(100% - 24px);
+          height: calc(100vh - 24px);
+        }
         .lb-content {
           flex-direction: column;
         }
@@ -324,10 +555,26 @@
           min-height: 50vh;
         }
         .lb-nav-btn {
-          display: none;
+          display: flex;
+          width: 48px;
+          height: 48px;
+          font-size: 1.4rem;
+          top: auto;
+          bottom: 16px;
+          transform: none;
+          box-shadow: 4px 4px 0 black;
+        }
+        .lb-nav-btn:active {
+          transform: translate(3px, 3px);
+        }
+        .prev-btn {
+          left: 16px;
+        }
+        .next-btn {
+          right: 16px;
         }
         .lb-details {
-          padding: 20px;
+          padding: 20px 20px 76px;
         }
       }
     </style>
@@ -337,6 +584,36 @@
       <h1>My Interior Design Work</h1>
       <p class="subtitle">Costal . Minimal . Cottage</p>
     </header>
+
+    <section class="filter-toolbar">
+      <div class="filter-toolbar-inner" id="filter-toolbar-inner">
+        <div class="filter-head">
+          <h2 class="filter-title">Filter Work</h2>
+          <div id="results-count-compact" class="results-count-compact"></div>
+          <button id="toggle-filters" class="filter-toggle" type="button" aria-expanded="true">
+            Filters
+            <span class="filter-toggle-icon" aria-hidden="true">&#9662;</span>
+          </button>
+        </div>
+        <div class="filter-panel" id="filter-panel">
+          <div class="filter-top-row">
+            <input id="search-input" class="filter-search" type="text" placeholder="Search title or description..." />
+            <button id="clear-all-filters" class="filter-clear" type="button">Clear Filters</button>
+          </div>
+          <div class="filter-groups">
+            <div class="filter-group">
+              <h3 class="filter-group-title">Include Tags (must match all)</h3>
+              <div id="include-tags" class="filter-chip-wrap"></div>
+            </div>
+            <div class="filter-group">
+              <h3 class="filter-group-title">Exclude Tags</h3>
+              <div id="exclude-tags" class="filter-chip-wrap"></div>
+            </div>
+          </div>
+          <div id="results-count" class="results-count"></div>
+        </div>
+      </div>
+    </section>
 
     <div class="gallery-container" id="gallery">
       <!-- Javascript fills this -->
@@ -360,11 +637,7 @@
           <div class="lb-details">
             <h2 id="lb-title">Project Title</h2>
             <p id="lb-desc">Description...</p>
-            <div style="margin-top: 30px">
-              <span id="lb-tag" style="background: var(--color-4); border: 2px solid black; padding: 5px 10px; font-weight: bold; font-size: 0.8rem"
-                >TAG</span
-              >
-            </div>
+            <div id="lb-tags" class="lb-tags"></div>
           </div>
         </div>
       </div>
@@ -372,42 +645,32 @@
 
     <script>
       // --- CONTENT DATA ---
-      const items = [
+      // Edit tag names/colors here. Use these exact tag names inside each item's `tags` array.
+      const TAG_CONFIG = {
+        KITCHEN: { color: "#ffd6e0" },
+        DINING: { color: "#c1e1c1" },
+        BEDROOM: { color: "#c4d0f5" },
+        COTTAGE: { color: "#fdfd96" },
+        COASTAL: { color: "#bde8ff" },
+        VIDEO: { color: "#f9c08f" },
+        ADAIRS: { color: "#111111" },
+        "IG REEL": { color: "#e1306c" },
+      };
+
+      const rawItems = [
         {
           type: "image",
           src: "kitchen.jpg",
           title: "Kitchen",
           desc: "A xxxxxxxxxxxxx xxxxx xxxxx xxxxxxxxxxxxx",
-          tag: "KITCHEN",
+          tags: ["KITCHEN", "ADAIRS"],
         },
         {
           type: "image",
           src: "dining.jpg",
           title: "Dining",
           desc: "A xxxxxxxxxxxxx xxxxx xxxxx xxxxxxxxxxxxx",
-          tag: "DINING",
-        },
-        {
-          type: "image",
-          src: "hima.jpg",
-          title: "Me in my kitchen",
-          desc: "A xxxxxxxxxxxxx xxxxx xxxxx xxxxxxxxxxxxx",
-          tag: "KITCHEN",
-        },
-        {
-          type: "video",
-          src: "https://videos.pexels.com/video-files/7578546/7578546-uhd_1440_2732_25fps.mp4",
-          cover: "https://picsum.photos/seed/vid2/800/1200",
-          title: "Garden Path",
-          desc: "A raw video file uploaded directly to the site.",
-          tag: "VIDEO",
-        },
-        {
-          type: "image",
-          src: "bedroom.jpg",
-          title: "Bedroom",
-          desc: "A xxxxxxxxxxxxx xxxxx xxxxx xxxxxxxxxxxxx",
-          tag: "BEDROOM",
+          tags: ["DINING", "COTTAGE"],
         },
         {
           type: "instagram",
@@ -415,41 +678,240 @@
           cover: "xmas-2022.png",
           title: "Christmas 2022",
           desc: "Our yummy Christmas tree from 2022, decorated with dehydrated oranges, gingerbread people, candy canes, and cherries.",
-          tag: "IG REEL",
+          tags: ["IG REEL"],
+        },
+        {
+          type: "image",
+          src: "hima.jpg",
+          title: "Me in my kitchen",
+          desc: "A xxxxxxxxxxxxx xxxxx xxxxx xxxxxxxxxxxxx",
+          tags: ["KITCHEN"],
+        },
+        {
+          type: "video",
+          src: "https://videos.pexels.com/video-files/7578546/7578546-uhd_1440_2732_25fps.mp4",
+          cover: "https://picsum.photos/seed/vid2/800/1200",
+          title: "Garden Path",
+          desc: "A raw video file uploaded directly to the site.",
+          tags: ["VIDEO"],
+        },
+        {
+          type: "image",
+          src: "bedroom.jpg",
+          title: "Bedroom",
+          desc: "A xxxxxxxxxxxxx xxxxx xxxxx xxxxxxxxxxxxx",
+          tags: ["BEDROOM", "COZY"],
         },
       ];
 
-      // --- BUILD GALLERY ---
+      function normalizeItem(item) {
+        const normalizedTags = Array.isArray(item.tags) ? item.tags : item.tag ? [item.tag] : [];
+        return {
+          ...item,
+          title: String(item.title || ""),
+          desc: String(item.desc || ""),
+          tags: normalizedTags.map((tag) => String(tag).trim()).filter(Boolean),
+        };
+      }
+
+      const items = rawItems.map(normalizeItem);
+
+      // --- STATE + ELEMENTS ---
       const gallery = document.getElementById("gallery");
-
-      items.forEach((item, index) => {
-        const card = document.createElement("div");
-        card.className = "gallery-item";
-
-        const displayImg = item.type === "image" ? item.src : item.cover;
-
-        let stickerStyle = "";
-        if (item.type === "instagram") stickerStyle = "background:#E1306C; color:white;";
-        if (item.type === "video") stickerStyle = "background:#000; color:white;";
-
-        card.innerHTML = `
-                <div class="tag-sticker" style="${stickerStyle}">${item.tag}</div>
-                <img src="${displayImg}" alt="${item.title}">
-                <div class="card-caption">${item.title}</div>
-            `;
-
-        card.addEventListener("click", () => openLightbox(index));
-        gallery.appendChild(card);
-      });
-
-      // --- LIGHTBOX FUNCTIONS ---
       const lightbox = document.getElementById("lightbox");
       const lbMedia = document.getElementById("lb-media");
+      const lbTags = document.getElementById("lb-tags");
+      const filterToolbarInner = document.getElementById("filter-toolbar-inner");
+      const toggleFiltersBtn = document.getElementById("toggle-filters");
+      const searchInput = document.getElementById("search-input");
+      const includeTagsEl = document.getElementById("include-tags");
+      const excludeTagsEl = document.getElementById("exclude-tags");
+      const resultsCountEl = document.getElementById("results-count");
+      const resultsCountCompactEl = document.getElementById("results-count-compact");
+      const clearAllFiltersBtn = document.getElementById("clear-all-filters");
 
+      const includeTags = new Set();
+      const excludeTags = new Set();
+      const usedTags = [...new Set(items.flatMap((item) => item.tags))];
+      const configuredTags = Object.keys(TAG_CONFIG);
+      const allTags = configuredTags.filter((tag) => usedTags.includes(tag)).concat(usedTags.filter((tag) => !configuredTags.includes(tag)));
+
+      let visibleIndices = [];
       let currentIndex = 0;
+      let currentVisiblePos = 0;
+      let filtersCollapsed = false;
 
+      function getTagColor(tag) {
+        return TAG_CONFIG[tag]?.color || "#fdfd96";
+      }
+
+      function getReadableTextColor(bg) {
+        const hex = String(bg).trim();
+        const match6 = /^#([A-Fa-f0-9]{6})$/.exec(hex);
+        const match3 = /^#([A-Fa-f0-9]{3})$/.exec(hex);
+        if (!match6 && !match3) return "#111";
+        const value = match6 ? match6[1] : `${match3[1][0]}${match3[1][0]}${match3[1][1]}${match3[1][1]}${match3[1][2]}${match3[1][2]}`;
+        const r = parseInt(value.slice(0, 2), 16);
+        const g = parseInt(value.slice(2, 4), 16);
+        const b = parseInt(value.slice(4, 6), 16);
+        const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+        return luminance > 0.6 ? "#111" : "#fff";
+      }
+
+      function applyTagColor(el, tag) {
+        const color = getTagColor(tag);
+        el.style.background = color;
+        el.style.color = getReadableTextColor(color);
+      }
+
+      function setFilterCollapsed(nextCollapsed) {
+        filtersCollapsed = nextCollapsed;
+        filterToolbarInner.classList.toggle("is-collapsed", filtersCollapsed);
+        toggleFiltersBtn.setAttribute("aria-expanded", String(!filtersCollapsed));
+        const label = filtersCollapsed ? "Open filters" : "Collapse filters";
+        toggleFiltersBtn.setAttribute("aria-label", label);
+        toggleFiltersBtn.title = label;
+      }
+
+      function toggleTagFilter(tag, mode) {
+        const targetSet = mode === "include" ? includeTags : excludeTags;
+        const oppositeSet = mode === "include" ? excludeTags : includeTags;
+
+        if (targetSet.has(tag)) {
+          targetSet.delete(tag);
+        } else {
+          targetSet.add(tag);
+          oppositeSet.delete(tag);
+        }
+
+        applyFiltersAndRender();
+      }
+
+      function buildFilterChips(container, mode, selectedSet) {
+        container.innerHTML = "";
+        allTags.forEach((tag) => {
+          const chip = document.createElement("button");
+          chip.type = "button";
+          chip.className = "filter-chip";
+          chip.style.setProperty("--tag-color", getTagColor(tag));
+          chip.style.setProperty("--tag-text", getReadableTextColor(getTagColor(tag)));
+          if (mode === "include" && selectedSet.has(tag)) chip.classList.add("is-include");
+          if (mode === "exclude" && selectedSet.has(tag)) chip.classList.add("is-exclude");
+          chip.textContent = tag;
+          chip.addEventListener("click", () => toggleTagFilter(tag, mode));
+          container.appendChild(chip);
+        });
+      }
+
+      function matchesFilters(item, searchValue) {
+        const searchable = `${item.title} ${item.desc}`.toLowerCase();
+        if (searchValue && !searchable.includes(searchValue)) return false;
+
+        for (const tag of includeTags) {
+          if (!item.tags.includes(tag)) return false;
+        }
+
+        for (const tag of excludeTags) {
+          if (item.tags.includes(tag)) return false;
+        }
+
+        return true;
+      }
+
+      function computeVisibleIndices() {
+        const searchValue = searchInput.value.trim().toLowerCase();
+        const matches = [];
+        items.forEach((item, index) => {
+          if (matchesFilters(item, searchValue)) matches.push(index);
+        });
+        return matches;
+      }
+
+      function renderGallery() {
+        gallery.innerHTML = "";
+
+        if (!visibleIndices.length) {
+          gallery.classList.add("is-empty");
+          const empty = document.createElement("div");
+          empty.className = "empty-state";
+          empty.textContent = "No projects match the current search and tag filters.";
+          gallery.appendChild(empty);
+          return;
+        }
+
+        gallery.classList.remove("is-empty");
+
+        visibleIndices.forEach((itemIndex, visiblePos) => {
+          const item = items[itemIndex];
+          const card = document.createElement("div");
+          card.className = "gallery-item";
+
+          const stickerWrap = document.createElement("div");
+          stickerWrap.className = "tag-sticker-wrap";
+          item.tags.forEach((tag) => {
+            const sticker = document.createElement("span");
+            sticker.className = "tag-sticker";
+            sticker.textContent = tag;
+            applyTagColor(sticker, tag);
+            stickerWrap.appendChild(sticker);
+          });
+
+          const img = document.createElement("img");
+          img.src = item.type === "image" ? item.src : item.cover || item.src;
+          img.alt = item.title;
+
+          const caption = document.createElement("div");
+          caption.className = "card-caption";
+          caption.textContent = item.title;
+
+          card.appendChild(stickerWrap);
+          card.appendChild(img);
+          card.appendChild(caption);
+          card.addEventListener("click", () => openLightbox(visiblePos));
+          gallery.appendChild(card);
+        });
+      }
+
+      function renderFilterUI() {
+        buildFilterChips(includeTagsEl, "include", includeTags);
+        buildFilterChips(excludeTagsEl, "exclude", excludeTags);
+
+        const summary = [`Showing ${visibleIndices.length} of ${items.length} projects`];
+        if (includeTags.size) summary.push(`Include: ${[...includeTags].join(", ")}`);
+        if (excludeTags.size) summary.push(`Exclude: ${[...excludeTags].join(", ")}`);
+        resultsCountEl.textContent = summary.join(" | ");
+        resultsCountCompactEl.textContent = `${visibleIndices.length}/${items.length} shown`;
+      }
+
+      function syncLightboxWithFilters() {
+        if (!lightbox.classList.contains("active")) return;
+        if (!visibleIndices.length) {
+          closeLightbox();
+          return;
+        }
+
+        const visiblePos = visibleIndices.indexOf(currentIndex);
+        if (visiblePos === -1) {
+          closeLightbox();
+          return;
+        }
+
+        currentVisiblePos = visiblePos;
+        updateContent();
+      }
+
+      function applyFiltersAndRender() {
+        visibleIndices = computeVisibleIndices();
+        renderGallery();
+        renderFilterUI();
+        syncLightboxWithFilters();
+      }
+
+      // --- LIGHTBOX FUNCTIONS ---
       function openLightbox(index) {
-        currentIndex = index;
+        if (!visibleIndices.length) return;
+        currentVisiblePos = index;
+        currentIndex = visibleIndices[currentVisiblePos];
         updateContent();
         lightbox.classList.add("active");
         document.body.style.overflow = "hidden";
@@ -466,7 +928,14 @@
 
         document.getElementById("lb-title").textContent = item.title;
         document.getElementById("lb-desc").textContent = item.desc;
-        document.getElementById("lb-tag").textContent = item.tag;
+        lbTags.innerHTML = "";
+        item.tags.forEach((tag) => {
+          const pill = document.createElement("span");
+          pill.className = "lb-tag-pill";
+          pill.textContent = tag;
+          applyTagColor(pill, tag);
+          lbTags.appendChild(pill);
+        });
 
         document.querySelector(".lb-header-bar").style.backgroundColor = `var(--color-${(currentIndex % 4) + 1})`;
 
@@ -490,17 +959,33 @@
       document.getElementById("lb-close").onclick = closeLightbox;
       document.getElementById("lb-next").onclick = (e) => {
         e.stopPropagation();
-        currentIndex = (currentIndex + 1) % items.length;
+        if (!visibleIndices.length) return;
+        currentVisiblePos = (currentVisiblePos + 1) % visibleIndices.length;
+        currentIndex = visibleIndices[currentVisiblePos];
         updateContent();
       };
       document.getElementById("lb-prev").onclick = (e) => {
         e.stopPropagation();
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        if (!visibleIndices.length) return;
+        currentVisiblePos = (currentVisiblePos - 1 + visibleIndices.length) % visibleIndices.length;
+        currentIndex = visibleIndices[currentVisiblePos];
         updateContent();
       };
       lightbox.onclick = (e) => {
         if (e.target === lightbox) closeLightbox();
       };
+
+      toggleFiltersBtn.addEventListener("click", () => {
+        setFilterCollapsed(!filtersCollapsed);
+      });
+
+      searchInput.addEventListener("input", applyFiltersAndRender);
+      clearAllFiltersBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        includeTags.clear();
+        excludeTags.clear();
+        applyFiltersAndRender();
+      });
 
       document.addEventListener("keydown", (e) => {
         if (!lightbox.classList.contains("active")) return;
@@ -508,6 +993,9 @@
         if (e.key === "ArrowRight") document.getElementById("lb-next").click();
         if (e.key === "ArrowLeft") document.getElementById("lb-prev").click();
       });
+
+      setFilterCollapsed(window.matchMedia("(max-width: 900px)").matches);
+      applyFiltersAndRender();
     </script>
   </body>
 </html>
