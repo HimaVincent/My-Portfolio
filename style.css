@@ -855,10 +855,9 @@ a {
 .project--sky .project__shot {
   background: #BEE3F8;
 }
-
 .project__art {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4/3;
   border-radius: 10px;
   border: 1.5px solid #0E0E10;
   background: rgba(255, 251, 239, 0.55);
@@ -1358,3 +1357,5 @@ a {
     transition: none !important;
   }
 }
+
+/*# sourceMappingURL=style.css.map */
