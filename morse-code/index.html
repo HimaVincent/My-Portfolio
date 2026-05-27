@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Morse Code Translator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=IBM+Plex+Sans:wght@300;400;600&family=Meddon&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a class="header__logo header__logo--fixed" href="https://himavincent.com/">HV</a>
+      <h1 class="header__title">Morse Code Translator</h1>
+      <p class="header__subtitle">Instantly convert between English and Morse Code</p>
+    </header>
+    <main class="main">
+      <section class="translator">
+        <div class="translator__input-wrapper">
+          <label for="input-text" class="translator__label">Enter Text</label>
+          <textarea
+            id="input-text"
+            class="translator__textarea translator__textarea--input"
+            placeholder="Type in English or Morse Code (. and -)..."
+          ></textarea>
+          <p id="input-hint" class="translator__hint" hidden>
+            ⚠️ Separate Morse code letters with <span class="translator__hint--underline">one space</span> and separate words using a slash
+            <span class="translator__hint--underline">'/'</span> or <span class="translator__hint--underline">three spaces</span>.
+          </p>
+        </div>
+
+        <div class="translator__detector">
+          <span id="detector-badge" class="translator__detector-badge"> Ready to translate </span>
+        </div>
+
+        <div class="translator__output-wrapper">
+          <label for="output-text" class="translator__label">Translation</label>
+          <textarea
+            id="output-text"
+            class="translator__textarea translator__textarea--output"
+            readonly
+            placeholder="Your translation will appear here..."
+          ></textarea>
+        </div>
+
+        <div class="translator__actions">
+          <button id="clear-btn" class="translator__button translator__button--clear">Clear All</button>
+        </div>
+      </section>
+
+      <section class="info">
+        <h3 class="info__toggle">Morse Code Reference Chart</h3>
+        <div id="info-content" class="info__content">
+          <table class="info__table">
+            <tbody>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">A</td>
+                <td class="info__cell info__cell--morse">.-</td>
+                <td class="info__cell info__cell--char">N</td>
+                <td class="info__cell info__cell--morse">-.</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">B</td>
+                <td class="info__cell info__cell--morse">-...</td>
+                <td class="info__cell info__cell--char">O</td>
+                <td class="info__cell info__cell--morse">---</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">C</td>
+                <td class="info__cell info__cell--morse">-.-.</td>
+                <td class="info__cell info__cell--char">P</td>
+                <td class="info__cell info__cell--morse">.--.</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">D</td>
+                <td class="info__cell info__cell--morse">-..</td>
+                <td class="info__cell info__cell--char">Q</td>
+                <td class="info__cell info__cell--morse">--.-</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">E</td>
+                <td class="info__cell info__cell--morse">.</td>
+                <td class="info__cell info__cell--char">R</td>
+                <td class="info__cell info__cell--morse">.-.</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">F</td>
+                <td class="info__cell info__cell--morse">..-.</td>
+                <td class="info__cell info__cell--char">S</td>
+                <td class="info__cell info__cell--morse">...</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">G</td>
+                <td class="info__cell info__cell--morse">--.</td>
+                <td class="info__cell info__cell--char">T</td>
+                <td class="info__cell info__cell--morse">-</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">H</td>
+                <td class="info__cell info__cell--morse">....</td>
+                <td class="info__cell info__cell--char">U</td>
+                <td class="info__cell info__cell--morse">..-</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">I</td>
+                <td class="info__cell info__cell--morse">..</td>
+                <td class="info__cell info__cell--char">V</td>
+                <td class="info__cell info__cell--morse">...-</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">J</td>
+                <td class="info__cell info__cell--morse">.---</td>
+                <td class="info__cell info__cell--char">W</td>
+                <td class="info__cell info__cell--morse">.--</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">K</td>
+                <td class="info__cell info__cell--morse">-.-</td>
+                <td class="info__cell info__cell--char">X</td>
+                <td class="info__cell info__cell--morse">-..-</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">L</td>
+                <td class="info__cell info__cell--morse">.-..</td>
+                <td class="info__cell info__cell--char">Y</td>
+                <td class="info__cell info__cell--morse">-.--</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">M</td>
+                <td class="info__cell info__cell--morse">--</td>
+                <td class="info__cell info__cell--char">Z</td>
+                <td class="info__cell info__cell--morse">--..</td>
+              </tr>
+
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">0</td>
+                <td class="info__cell info__cell--morse">-----</td>
+                <td class="info__cell info__cell--char">5</td>
+                <td class="info__cell info__cell--morse">.....</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">1</td>
+                <td class="info__cell info__cell--morse">.----</td>
+                <td class="info__cell info__cell--char">6</td>
+                <td class="info__cell info__cell--morse">-....</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">2</td>
+                <td class="info__cell info__cell--morse">..---</td>
+                <td class="info__cell info__cell--char">7</td>
+                <td class="info__cell info__cell--morse">--...</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">3</td>
+                <td class="info__cell info__cell--morse">...--</td>
+                <td class="info__cell info__cell--char">8</td>
+                <td class="info__cell info__cell--morse">---..</td>
+              </tr>
+              <tr class="info__row">
+                <td class="info__cell info__cell--char">4</td>
+                <td class="info__cell info__cell--morse">....-</td>
+                <td class="info__cell info__cell--char">9</td>
+                <td class="info__cell info__cell--morse">----.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

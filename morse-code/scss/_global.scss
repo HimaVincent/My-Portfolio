@@ -1,0 +1,44 @@
+@use "variables" as var;
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: var.$font-body;
+  background: linear-gradient(var.$color-bg-line 1px, transparent 1px), linear-gradient(90deg, var.$color-bg-line 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-color: var.$color-bg;
+  color: var.$color-text;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var.$font-heading;
+  color: var.$color-heading;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+  margin: 0 0.7rem;
+}
+
+.main,
+.main__section {
+  padding: 0 2rem;
+  margin: 2rem 0;
+}
+

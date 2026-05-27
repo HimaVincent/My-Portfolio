@@ -1,197 +1,527 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hima Vincent - Portfolio</title>
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Hima Vincent - Web Developer / Melbourne</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Sans:ital@0;1&family=Meddon&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <header class="header">
-      <nav class="header__nav" aria-label="Main Navigation">
-        <a class="header__logo" href="#home" aria-label="Go to home">HV</a>
-        <input type="checkbox" id="nav-toggle" class="header__checkbox" aria-hidden="true" />
+    <!-- ============== NAV ============== -->
+    <header class="nav">
+      <div class="nav__wrap">
+        <a href="#top" class="nav__logo" aria-label="Hima Vincent - home">
+          <span class="nav__logo-mark">HV</span>
+          <span class="nav__logo-dot" aria-hidden="true"></span>
+        </a>
 
-        <ul class="header__nav-list">
-          <li class="header__nav-item"><a class="header__nav-link" href="#about">About</a></li>
-          <li class="header__nav-item"><a class="header__nav-link" href="#tech-stack">Tech Stack</a></li>
-          <li class="header__nav-item"><a class="header__nav-link" href="#projects">Projects</a></li>
-          <li class="header__nav-item"><a class="header__nav-link" href="#contact">Contact</a></li>
-          <li class="header__nav-item">
-            <a class="header__nav-link" href="assets/hima-resume.pdf" target="_blank" rel="noopener noreferrer"> Résumé </a>
-          </li>
-        </ul>
-        <label for="nav-toggle" class="header__burger"> <i class="fa-solid fa-bars"></i></label>
-        <div class="overlay"></div>
-      </nav>
+        <input type="checkbox" id="navToggle" class="nav__toggle" aria-hidden="true" />
+        <label for="navToggle" class="nav__burger" aria-label="Open menu"> <span></span><span></span><span></span> </label>
+
+        <nav class="nav__menu" aria-label="Primary">
+          <ul class="nav__list">
+            <li><a href="#about" class="nav__link">About</a></li>
+            <li><a href="#stack" class="nav__link">Stack</a></li>
+            <li><a href="#work" class="nav__link">Work</a></li>
+            <li><a href="#journey" class="nav__link">Journey</a></li>
+            <li><a href="#contact" class="nav__link">Contact</a></li>
+            <li><a href="assets/hima-resume.pdf" class="nav__cta" target="_blank" rel="noopener">Résumé ↗</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <main class="main">
-      <section id="home" class="main__section hero">
-        <div class="hero__intro">
-          <h1 class="hero__title">Hi, I am Hima.</h1>
-          <p class="hero__tagline">A Melbourne-based web developer who loves aesthetics and is always learning.</p>
-          <a href="#projects" class="hero__cta">View My Projects</a>
-        </div>
+    <main id="top">
+      <!-- ============== HERO ============== -->
+      <section class="hero">
+        <div class="hero__grid">
+          <div class="hero__intro">
+            <span class="badge badge--pink"> <span class="badge__dot"></span> Available for junior dev roles </span>
 
-        <figure class="hero__media">
-          <img class="hero__image" src="assets/hima.jpg" alt="Hima" />
-        </figure>
-      </section>
+            <h1 class="hero__title">
+              Hi, I'm <span class="hero__name">Hima</span>.<br />
+              I build <em class="hero__em">tidy,</em><br />
+              <em class="hero__em">aesthetic</em> websites.
+            </h1>
 
-      <section id="about" class="main__section about">
-        <h2 class="about__title">A bit about me...</h2>
-        <p class="about__text">
-          I'm a developer in training through _nology, building on my tech foundation and my love for clean, aesthetic design. I completed my
-          Bachelor's in Electronics and Instrumentation, which eventually led me into the tech industry as a QA Analyst. Along the way, I also ran and
-          curated content for my own design-inspiration websites, a space where I fine-tuned my eye for detail, user experience, and what makes
-          digital content genuinely engaging.
-        </p>
+            <p class="hero__lede">
+              Melbourne-based web developer in training at <strong>_nology</strong>. QA background, design-obsessed brain, building real things on the
+              front-end.
+            </p>
 
-        <p class="about__text">
-          I'm a big foodie at heart. I love discovering new places to eat and experimenting in the kitchen, and trying new recipes has always come
-          naturally to me. I also enjoy travelling (even though I haven't explored as much as I'd like to yet), unwinding with films and TV shows, and
-          dreaming up interior design ideas. Anything aesthetic instantly catches my attention.
-        </p>
+            <div class="hero__ctas">
+              <a href="#work" class="btn btn--primary">See my work →</a>
+              <a href="#contact" class="btn btn--ghost">Say hi</a>
+            </div>
 
-        <p class="about__text">
-          This portfolio is a reflection of everything I'm learning and building, and it will keep evolving as I grow as a developer and as a creator.
-        </p>
-      </section>
+            <ul class="hero__meta">
+              <li><span>📍</span> Melbourne, AU</li>
+              <li><span>⏱</span> Open to remote / hybrid</li>
+              <li><span>✦</span> Front-end focus</li>
+            </ul>
+          </div>
 
-      <section id="tech-stack" class="main__section techstack">
-        <h2 class="techstack__title">My Tech Stack</h2>
-        <div class="techstack__grid">
-          <article class="techstack__item">HTML</article>
-          <article class="techstack__item">JavaScript</article>
-          <article class="techstack__item">CSS</article>
-          <article class="techstack__item">SCSS</article>
-        </div>
-      </section>
+          <div class="hero__media">
+            <div class="sticker sticker--yellow" style="--rot: -8deg">aesthetic obsessed</div>
+            <div class="sticker sticker--mint" style="--rot: 6deg">QA → Dev</div>
 
-      <section id="projects" class="main__section projects">
-        <h2 class="projects__title">Projects</h2>
-
-        <div class="projects__grid">
-          <article class="project-card">
-            <input type="checkbox" id="project-1-toggle" class="project-card__toggle" />
-
-            <label for="project-1-toggle" class="project-card__click-area"></label>
-
-            <div class="project-card__inner">
-              <div class="project-card__face project-card__face--front">
-                <figure class="project-card__image-wrapper">
-                  <img src="assets/hima-project.png" alt="Hima Project" class="project-card__image" />
-                </figure>
-                <h3 class="project-card__title">Starter Portfolio</h3>
+            <div class="photo">
+              <div class="photo__frame">
+                <img src="assets/hima.jpg" alt="Portrait of Hima Vincent" class="photo__img" />
               </div>
+              <div class="photo__tag">
+                <span>HV</span>
+                <small>2026</small>
+              </div>
+            </div>
+          </div>
+        </div>
 
-              <div class="project-card__face project-card__face--back">
-                <label for="project-1-toggle" class="project-card__flip-back" aria-label="Flip card back"> ✕ </label>
-                <h3 class="project-card__title project-card__title--back">Starter Portfolio</h3>
-                <p class="project-card__description">
-                  A simple portfolio I built during my _nology training, showcasing my HTML, CSS and JS foundations.
-                </p>
-                <a href="https://github.com/HimaVincent/My-Portfolio/" class="project-card__button" target="_blank" rel="noopener noreferrer"
-                  >View project</a
+        <!-- marquee strip -->
+        <div class="marquee" aria-hidden="true">
+          <div class="marquee__track">
+            <span><i class="ph-bold ph-file-html"></i>HTML</span><span>★</span><span><i class="ph-bold ph-file-css"></i>CSS</span><span>★</span
+            ><span><i class="ph-bold ph-paint-brush"></i>SCSS</span><span>★</span><span><i class="ph-bold ph-brackets-curly"></i>JavaScript</span
+            ><span>★</span><span><i class="ph-bold ph-brackets-square"></i>TypeScript</span><span>★</span
+            ><span><i class="ph-bold ph-atom"></i>React</span><span>★</span><span><i class="ph-bold ph-hexagon"></i>Node.js</span><span>★</span
+            ><span><i class="ph-bold ph-wheelchair-motion"></i>Accessibility</span><span>★</span
+            ><span><i class="ph-bold ph-devices"></i>Responsive</span><span>★</span><span><i class="ph-bold ph-squares-four"></i>Design Systems</span
+            ><span>★</span><span><i class="ph-bold ph-cube"></i>BEM</span><span>★</span><span><i class="ph-bold ph-figma-logo"></i>Figma</span
+            ><span>★</span><span><i class="ph-bold ph-git-branch"></i>Git</span><span>★</span
+            ><span><i class="ph-bold ph-lightning"></i>Performance</span><span>★</span> <span><i class="ph-bold ph-file-html"></i>HTML</span
+            ><span>★</span><span><i class="ph-bold ph-file-css"></i>CSS</span><span>★</span><span><i class="ph-bold ph-paint-brush"></i>SCSS</span
+            ><span>★</span><span><i class="ph-bold ph-brackets-curly"></i>JavaScript</span><span>★</span
+            ><span><i class="ph-bold ph-brackets-square"></i>TypeScript</span><span>★</span><span><i class="ph-bold ph-atom"></i>React</span
+            ><span>★</span><span><i class="ph-bold ph-hexagon"></i>Node.js</span><span>★</span
+            ><span><i class="ph-bold ph-wheelchair-motion"></i>Accessibility</span><span>★</span
+            ><span><i class="ph-bold ph-devices"></i>Responsive</span><span>★</span><span><i class="ph-bold ph-squares-four"></i>Design Systems</span
+            ><span>★</span><span><i class="ph-bold ph-cube"></i>BEM</span><span>★</span><span><i class="ph-bold ph-figma-logo"></i>Figma</span
+            ><span>★</span><span><i class="ph-bold ph-git-branch"></i>Git</span><span>★</span
+            ><span><i class="ph-bold ph-lightning"></i>Performance</span><span>★</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== ABOUT ============== -->
+      <section id="about" class="section section--cream">
+        <div class="section__head">
+          <span class="eyebrow">01 - About</span>
+          <h2 class="section__title">A bit about <em>me.</em></h2>
+        </div>
+
+        <div class="about">
+          <article class="card card--lilac card--tilt-l">
+            <h3 class="card__h">The short version</h3>
+            <p>
+              Developer in training through <strong>_nology</strong>, sharpening a tech foundation I built years ago. I have a Bachelor's in
+              Electronics &amp; Instrumentation, and started my career as a <strong>QA Analyst</strong> - which taught me to obsess over the details
+              users actually feel.
+            </p>
+          </article>
+
+          <article class="card card--peach card--tilt-r">
+            <h3 class="card__h">The design itch</h3>
+            <p>
+              Alongside QA, I ran and curated my own design-inspiration sites for years. That's where my eye for typography, layout and what makes a
+              thing <em>genuinely good</em> got trained up.
+            </p>
+          </article>
+
+          <article class="card card--sky card--tilt-l">
+            <h3 class="card__h">Outside the screen</h3>
+            <p>
+              Big foodie - always cooking something new or hunting down the next dumpling spot. Films, travel, interior design, anything aesthetic. If
+              it looks considered, I'm in.
+            </p>
+          </article>
+
+          <article class="card card--mint card--tilt-r">
+            <h3 class="card__h">Right now</h3>
+            <p>
+              Shipping projects, learning React, and looking for a team that cares about
+              <em>craft</em> - both code and pixels. This portfolio will keep growing as I do.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============== STACK ============== -->
+      <section id="stack" class="section">
+        <div class="section__head">
+          <span class="eyebrow">02 - Toolbox</span>
+          <h2 class="section__title">Things I <em>build with.</em></h2>
+        </div>
+
+        <div class="stack">
+          <div class="stack__group">
+            <h4 class="stack__label">Languages</h4>
+            <ul class="chips">
+              <li class="chip chip--pink"><i class="ph-bold ph-file-html" aria-hidden="true"></i>HTML5</li>
+              <li class="chip chip--yellow"><i class="ph-bold ph-file-css" aria-hidden="true"></i>CSS3</li>
+              <li class="chip chip--mint"><i class="ph-bold ph-paint-brush" aria-hidden="true"></i>SCSS</li>
+              <li class="chip chip--peach"><i class="ph-bold ph-brackets-curly" aria-hidden="true"></i>JavaScript</li>
+            </ul>
+          </div>
+
+          <div class="stack__group">
+            <h4 class="stack__label">Frameworks &amp; libraries</h4>
+            <ul class="chips">
+              <li class="chip chip--lilac"><i class="ph-bold ph-atom" aria-hidden="true"></i>React <small>learning</small></li>
+              <li class="chip chip--sky"><i class="ph-bold ph-hexagon" aria-hidden="true"></i>Node.js <small>learning</small></li>
+            </ul>
+          </div>
+
+          <div class="stack__group">
+            <h4 class="stack__label">Workflow</h4>
+            <ul class="chips">
+              <li class="chip chip--mint"><i class="ph-bold ph-github-logo" aria-hidden="true"></i>Git &amp; GitHub</li>
+              <li class="chip chip--pink"><i class="ph-bold ph-figma-logo" aria-hidden="true"></i>Figma</li>
+              <li class="chip chip--yellow"><i class="ph-bold ph-code" aria-hidden="true"></i>VS Code</li>
+              <li class="chip chip--peach"><i class="ph-bold ph-devices" aria-hidden="true"></i>Responsive design</li>
+              <li class="chip chip--lilac"><i class="ph-bold ph-wheelchair-motion" aria-hidden="true"></i>Accessibility</li>
+              <li class="chip chip--sky"><i class="ph-bold ph-stack" aria-hidden="true"></i>BEM / SCSS arch</li>
+            </ul>
+          </div>
+
+          <div class="stack__group">
+            <h4 class="stack__label">From my QA life</h4>
+            <ul class="chips">
+              <li class="chip chip--pink"><i class="ph-bold ph-clipboard-text" aria-hidden="true"></i>Manual testing</li>
+              <li class="chip chip--yellow"><i class="ph-bold ph-bug" aria-hidden="true"></i>Bug triage</li>
+              <li class="chip chip--mint"><i class="ph-bold ph-list-checks" aria-hidden="true"></i>Test plans</li>
+              <li class="chip chip--peach"><i class="ph-bold ph-kanban" aria-hidden="true"></i>JIRA</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== WORK ============== -->
+      <section id="work" class="section section--cream">
+        <div class="section__head">
+          <span class="eyebrow">03 - Selected work</span>
+          <h2 class="section__title">Stuff I've <em>built.</em></h2>
+          <p class="section__sub">More projects landing here as I ship them. Each one taught me something specific.</p>
+        </div>
+
+        <div class="work">
+          <article class="project project--yellow">
+            <div class="project__shot">
+              <img src="assets/todo.png" alt="ToDO App screenshot" class="project__img" />
+              <span class="project__num">01</span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta"><span class="tag">React</span><span class="tag">Java</span><span class="tag">MySQL</span></div>
+              <h3 class="project__title">Todo App</h3>
+              <p class="project__desc">
+                Built with React, TypeScript, Vite, SCSS Modules, Spring Boot and MySQL, this full-stack task management application combines a clean
+                pastel-inspired design with a responsive UI and a structured backend architecture.
+              </p>
+              <ul class="project__notes">
+                <li>Reusable React components</li>
+                <li>Proper REST API design</li>
+                <li>Swagger-based API testing</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/HimaVincent/Todo-Frontend" class="btn btn--small" target="_blank" rel="noopener">Front End Code ↗</a>
+                <a href="https://github.com/HimaVincent/Todo-Backend-API" class="btn btn--small" target="_blank" rel="noopener">Back End Code ↗</a>
+                <a href="https://todo.himavincent.com/" class="btn btn--small" target="_blank" rel="noopener">Live App ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project project--lilac">
+            <div class="project__shot">
+              <div class="project__art">
+                <i class="ph-bold ph-flame project__art-icon" aria-hidden="true"></i>
+                <span class="project__art-label">candle storefront</span>
+              </div>
+              <span class="project__num">02</span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Firebase</span></div>
+              <h3 class="project__title">Haus of Harmony</h3>
+              <p class="project__desc">
+                An e-commerce storefront for a candle brand. React + Vite on top of Firestore - product catalogue, lit / unlit image toggle,
+                expandable details, full cart flow.
+              </p>
+              <ul class="project__notes">
+                <li>Firestore-driven products and favourites</li>
+                <li>Lit / unlit image toggle on tiles</li>
+                <li>Cart with quantities, totals, checkout sim</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/HimaVincent/Haus-of-Harmony" class="btn btn--small" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project project--peach">
+            <div class="project__shot">
+              <div class="project__art">
+                <i class="ph-bold ph-books project__art-icon" aria-hidden="true"></i>
+                <span class="project__art-label">book search</span>
+              </div>
+              <span class="project__num">03</span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta"><span class="tag">React</span><span class="tag">API</span><span class="tag">SCSS</span></div>
+              <h3 class="project__title">Books Actually</h3>
+              <p class="project__desc">
+                A book search app powered by the Google Books API. Genre quick-picks, paginated results, modal detail view. Minimalist editorial UI
+                inspired by antennebooks.com.
+              </p>
+              <ul class="project__notes">
+                <li>Search by title, author, or keyword</li>
+                <li>Genre buttons + curated home picks</li>
+                <li>Modal book details, fully responsive</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/HimaVincent/Books-Actually" class="btn btn--small" target="_blank" rel="noopener">Code ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project project--pink">
+            <div class="project__shot">
+              <img src="assets/minesweeper.png" alt="minesweeper game screenshot" class="project__img" />
+              <span class="project__num">01</span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta"><span class="tag">Java</span><span class="tag">OOP</span><span class="tag">CLI</span></div>
+              <h3 class="project__title">Minesweeper</h3>
+              <p class="project__desc">
+                A console-based Minesweeper built in Java, with clean separation between game engine and rendering. ANSI-styled grid, cascade reveals,
+                configurable size and mine count.
+              </p>
+              <ul class="project__notes">
+                <li>Engine / console layers split cleanly (Game, Board, Cell)</li>
+                <li>ANSI-coloured terminal grid with flags and numbers</li>
+                <li>Win / loss states + play-again loop</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/HimaVincent/Minesweeper" class="btn btn--small" target="_blank" rel="noopener">Code ↗</a>
+                <a href="https://java-game-host--hima-vincent.replit.app/" class="btn btn--small" target="_blank" rel="noopener"
+                  >Play Minesweeper ↗</a
                 >
               </div>
             </div>
           </article>
 
-          <article class="project-card">
-            <input type="checkbox" id="project-2-toggle" class="project-card__toggle" />
-
-            <label for="project-2-toggle" class="project-card__click-area"></label>
-
-            <div class="project-card__inner">
-              <div class="project-card__face project-card__face--front">
-                <figure class="project-card__image-wrapper">
-                  <img src="assets/codemyui.png" alt="CodeMyUI Website" class="project-card__image" />
-                </figure>
-                <h3 class="project-card__title">CodeMyUI</h3>
+          <article class="project project--sky">
+            <div class="project__shot">
+              <div class="project__art">
+                <i class="ph-bold ph-broadcast project__art-icon" aria-hidden="true"></i>
+                <span class="project__art-label">·− −··· −·−·</span>
               </div>
-
-              <div class="project-card__face project-card__face--back">
-                <label for="project-2-toggle" class="project-card__flip-back" aria-label="Flip card back"> ✕ </label>
-                <h3 class="project-card__title project-card__title--back">CodeMyUI</h3>
-                <p class="project-card__description">
-                  A curated UI inspiration hub featuring creative frontend snippets from CodePen, JSFiddle and more.
-                </p>
-                <a href="https://codemyui.com/" class="project-card__button" target="_blank" rel="noopener noreferrer">Visit project</a>
+              <span class="project__num">04</span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta"><span class="tag">JavaScript</span><span class="tag">Jest</span><span class="tag">BEM</span></div>
+              <h3 class="project__title">Morse Code Translator</h3>
+              <p class="project__desc">
+                Two-way English / Morse translator with automatic language detection - no mode switch needed, it figures out what you're typing.
+                Vanilla JS, Jest-tested core.
+              </p>
+              <ul class="project__notes">
+                <li>Real-time translation with debounce</li>
+                <li>Auto-detects EN, Morse, or mixed input</li>
+                <li>Unit-tested logic + BEM SCSS</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/HimaVincent/Morse-Code-Translator" class="btn btn--small" target="_blank" rel="noopener">Code ↗</a>
               </div>
             </div>
           </article>
 
-          <article class="project-card">
-            <input type="checkbox" id="project-3-toggle" class="project-card__toggle" />
-
-            <label for="project-3-toggle" class="project-card__click-area"></label>
-
-            <div class="project-card__inner">
-              <div class="project-card__face project-card__face--front">
-                <figure class="project-card__image-wrapper">
-                  <img src="assets/periodic-table.png" alt="Periodic Table Project" class="project-card__image" />
-                </figure>
-                <h3 class="project-card__title">Periodic Table</h3>
-              </div>
-
-              <div class="project-card__face project-card__face--back">
-                <label for="project-3-toggle" class="project-card__flip-back" aria-label="Flip card back"> ✕ </label>
-                <h3 class="project-card__title project-card__title--back">Periodic Table</h3>
-                <p class="project-card__description">A learning website with flashcards and quizzes to help my daughter learn the elements.</p>
-                <a href="https://skyegeorge.com/periodic-table/" class="project-card__button" target="_blank" rel="noopener noreferrer"
-                  >Visit project</a
-                >
+          <article class="project project--mint">
+            <div class="project__shot">
+              <img src="assets/hangman.png" alt="Hangman screenshot" class="project__img" />
+              <span class="project__num">05</span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta"><span class="tag">JavaScript</span><span class="tag">DOM</span><span class="tag">SCSS</span></div>
+              <h3 class="project__title">Hangman</h3>
+              <p class="project__desc">
+                The classic word-guessing game. On-screen keyboard plus physical key support, progressive hangman art, built-in timer. Notebook-themed
+                UI in vanilla JS.
+              </p>
+              <ul class="project__notes">
+                <li>On-screen + physical keyboard input</li>
+                <li>Progressive hangman illustration per miss</li>
+                <li>Auto-starting timer + reveal mechanics</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://github.com/HimaVincent/Hangman" class="btn btn--small" target="_blank" rel="noopener">Code ↗</a>
+                <a href="https://himavincent.com/hangman/" class="btn btn--small" target="_blank" rel="noopener">Play Hangman ↗</a>
               </div>
             </div>
           </article>
+
+          <article class="project project--yellow">
+            <div class="project__shot">
+              <img src="assets/codemyui.png" alt="CodeMyUI screenshot" class="project__img" />
+              <span class="project__num">06</span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta"><span class="tag">Curation</span><span class="tag">UX</span><span class="tag">Content</span></div>
+              <h3 class="project__title">CodeMyUI</h3>
+              <p class="project__desc">
+                A curated UI inspiration hub I built and grew - surfacing creative front-end snippets from CodePen, JSFiddle and elsewhere. Trained my
+                eye for what makes interfaces feel <em>alive</em>.
+              </p>
+              <ul class="project__notes">
+                <li>Editorial pipeline + tagging system</li>
+                <li>Years of pattern research</li>
+                <li>Hundreds of thousands of visitors</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://codemyui.com/" class="btn btn--small" target="_blank" rel="noopener">Visit ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project project--mint">
+            <div class="project__shot">
+              <img src="assets/periodic-table.png" alt="Periodic Table Trainer screenshot" class="project__img" />
+              <span class="project__num">07</span>
+            </div>
+            <div class="project__body">
+              <div class="project__meta"><span class="tag">JS</span><span class="tag">EdTech</span><span class="tag">DOM</span></div>
+              <h3 class="project__title">Periodic Table Trainer</h3>
+              <p class="project__desc">
+                A learning site with flashcards and quizzes I built to help my daughter learn the elements. Real user, real feedback loop, no
+                framework - just vanilla JS doing the work.
+              </p>
+              <ul class="project__notes">
+                <li>Flashcard + quiz logic in vanilla JS</li>
+                <li>Local progress tracking</li>
+                <li>Designed for an 8-year-old's attention span</li>
+              </ul>
+              <div class="project__links">
+                <a href="https://skyegeorge.com/periodic-table/" class="btn btn--small" target="_blank" rel="noopener">Visit ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- placeholder for next project -->
+          <article class="project project--soon">
+            <div class="project__soon">
+              <span class="project__soon-tag">Next up</span>
+              <h3 class="project__soon-title">Something new is cooking 🍳</h3>
+              <p>I'm building a new project right now. Check back soon - or get in touch and I'll send you a preview.</p>
+              <a href="#contact" class="btn btn--small btn--ghost">Get the preview →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============== JOURNEY ============== -->
+      <section id="journey" class="section">
+        <div class="section__head">
+          <span class="eyebrow">04 - Journey</span>
+          <h2 class="section__title">How I got <em>here.</em></h2>
+        </div>
+
+        <ol class="timeline">
+          <li class="t-item">
+            <span class="t-dot t-dot--pink"></span>
+            <div class="t-card">
+              <span class="t-year">2026 - now</span>
+              <h3>Full-Stack Trainee · _nology</h3>
+              <p>Intensive front-end + back-end programme. Daily coding, code reviews, real client briefs. Levelling up React and Node.</p>
+            </div>
+          </li>
+          <li class="t-item">
+            <span class="t-dot t-dot--yellow"></span>
+            <div class="t-card">
+              <span class="t-year">Years prior</span>
+              <h3>Founder &amp; Editor · CodeMyUI</h3>
+              <p>Built and ran a UI inspiration hub. Curated thousands of patterns, learned what users actually click on, sharpened my design eye.</p>
+            </div>
+          </li>
+          <li class="t-item">
+            <span class="t-dot t-dot--mint"></span>
+            <div class="t-card">
+              <span class="t-year">Earlier</span>
+              <h3>QA Analyst</h3>
+              <p>Test plans, bug triage, regression. Where I learned to think like a user and trust nothing until it's verified.</p>
+            </div>
+          </li>
+          <li class="t-item">
+            <span class="t-dot t-dot--lilac"></span>
+            <div class="t-card">
+              <span class="t-year">Foundation</span>
+              <h3>B.Eng · Electronics &amp; Instrumentation</h3>
+              <p>Where the technical brain got wired up - circuits, systems thinking, breaking problems into small parts.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ============== CONTACT ============== -->
+      <section id="contact" class="section section--dark">
+        <div class="contact">
+          <span class="eyebrow eyebrow--light">05 - Say hi</span>
+          <h2 class="contact__title">Got a role, a project, or a cool idea? <em>Let's talk.</em></h2>
+
+          <a href="mailto:himavincent@outlook.com" class="contact__email">
+            himavincent@outlook.com
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <div class="contact__grid">
+            <a class="contact__card contact__card--pink" href="https://www.linkedin.com/in/himavincent/" target="_blank" rel="noopener">
+              <i class="ph-bold ph-linkedin-logo contact__card-icon" aria-hidden="true"></i>
+              <span class="contact__card-label">Network</span>
+              <span class="contact__card-h">LinkedIn</span>
+              <span class="contact__card-arr">→</span>
+            </a>
+            <a class="contact__card contact__card--yellow" href="https://github.com/HimaVincent" target="_blank" rel="noopener">
+              <i class="ph-bold ph-github-logo contact__card-icon" aria-hidden="true"></i>
+              <span class="contact__card-label">Code</span>
+              <span class="contact__card-h">GitHub</span>
+              <span class="contact__card-arr">→</span>
+            </a>
+            <a class="contact__card contact__card--mint" href="https://www.codewars.com/users/HimaVincent" target="_blank" rel="noopener">
+              <i class="ph-bold ph-sword contact__card-icon" aria-hidden="true"></i>
+              <span class="contact__card-label">Practice</span>
+              <span class="contact__card-h">Codewars</span>
+              <span class="contact__card-arr">→</span>
+            </a>
+            <a class="contact__card contact__card--lilac" href="assets/hima-resume.pdf" target="_blank" rel="noopener">
+              <i class="ph-bold ph-file-pdf contact__card-icon" aria-hidden="true"></i>
+              <span class="contact__card-label">Document</span>
+              <span class="contact__card-h">Résumé</span>
+              <span class="contact__card-arr">↗</span>
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer id="contact" class="footer" aria-label="Contact">
-      <div class="footer__content">
-        <p class="footer__email">
-          Email:
-          <a class="footer__email-link" href="mailto:himavincent@outlook.com"> himavincent@outlook.com </a>
-        </p>
-
-        <div class="footer__socials">
-          <a class="footer__social-link" href="https://github.com/HimaVincent" target="_blank" rel="noopener noreferrer"> GitHub </a>
-          <a class="footer__social-link" href="https://www.linkedin.com/in/himavincent/" target="_blank" rel="noopener noreferrer"> LinkedIn </a>
-          <a class="footer__social-link" href="https://www.codewars.com/users/HimaVincent" target="_blank" rel="noopener noreferrer"> Codewars</a>
-        </div>
-
-        <small class="footer__copyright"> &copy; Hima 2025 | All rights reserved. </small>
+    <footer class="foot">
+      <div class="foot__wrap">
+        <span>© Hima Vincent · 2026</span>
+        <span>Made with HTML, CSS &amp; care · Melbourne</span>
+        <a href="#top" class="foot__top">Back to top ↑</a>
       </div>
     </footer>
-    <script>
-      const navToggle = document.getElementById("nav-toggle");
-      const navLinks = document.querySelectorAll(".header__nav-link");
-      const overlay = document.querySelector(".overlay");
 
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          navToggle.checked = false;
+    <script>
+      // mobile menu close on link click
+      const tog = document.getElementById("navToggle");
+      document.querySelectorAll(".nav__link, .nav__cta").forEach((a) => {
+        a.addEventListener("click", () => {
+          if (tog) tog.checked = false;
         });
       });
-
-      if (overlay) {
-        overlay.addEventListener("click", () => {
-          navToggle.checked = false;
-        });
-      }
     </script>
   </body>
 </html>

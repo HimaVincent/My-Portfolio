@@ -1,0 +1,479 @@
+/*! modern-normalize v3.0.1 | MIT License | https://github.com/sindresorhus/modern-normalize */
+/*
+Document
+========
+*/
+/**
+Use a better box model (opinionated).
+*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the line height in all browsers.
+3. Prevent adjustments of font size after orientation changes in iOS.
+4. Use a more readable tab size (opinionated).
+*/
+html {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"; /* 1 */
+  line-height: 1.15; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 3 */
+  tab-size: 4; /* 4 */
+}
+
+/*
+Sections
+========
+*/
+/**
+Remove the margin in all browsers.
+*/
+body {
+  margin: 0;
+}
+
+/*
+Text-level semantics
+====================
+*/
+/**
+Add the correct font weight in Chrome and Safari.
+*/
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the odd 'em' font sizing in all browsers.
+*/
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+Add the correct font size in all browsers.
+*/
+small {
+  font-size: 80%;
+}
+
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+Tabular data
+============
+*/
+/**
+Correct table border color inheritance in Chrome and Safari. (https://issues.chromium.org/issues/40615503, https://bugs.webkit.org/show_bug.cgi?id=195016)
+*/
+table {
+  border-color: currentcolor;
+}
+
+/*
+Forms
+=====
+*/
+/**
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+*/
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+Correct the inability to style clickable types in iOS and Safari.
+*/
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+/**
+Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+*/
+legend {
+  padding: 0;
+}
+
+/**
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+progress {
+  vertical-align: baseline;
+}
+
+/**
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+[type=search] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to 'inherit' in Safari.
+*/
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Interactive
+===========
+*/
+/*
+Add the correct display in Chrome and Safari.
+*/
+summary {
+  display: list-item;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: "IBM Plex Sans", sans-serif;
+  background: linear-gradient(#88d1f3 1px, transparent 1px), linear-gradient(90deg, #88d1f3 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-color: #f7f2e6;
+  color: #a68a5c;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "DM Serif Display", serif;
+  color: #8b6f47;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+  margin: 0 0.7rem;
+}
+
+.main,
+.main__section {
+  padding: 0 2rem;
+  margin: 2rem 0;
+}
+
+.header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+}
+.header__logo {
+  font-family: "Meddon", cursive;
+  color: #8b6f47;
+  font-size: 1.5rem;
+  margin: 0;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.header__title {
+  font-family: "DM Serif Display", serif;
+  color: #8b6f47;
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+.header__subtitle {
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #a68a5c;
+  font-size: 1.1rem;
+  margin: 0.5rem 0 0;
+  font-weight: 300;
+}
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 3rem 2rem 2rem;
+  }
+  .header__logo {
+    font-size: 2.5rem;
+  }
+  .header__logo--fixed {
+    position: fixed;
+    bottom: 4rem;
+    left: 4rem;
+    z-index: 1;
+  }
+  .header__title {
+    font-size: 4rem;
+  }
+  .header__subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+.translator {
+  background-color: #fffefe;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.translator__input-wrapper, .translator__output-wrapper {
+  margin-bottom: 1.5rem;
+}
+.translator__label {
+  display: block;
+  font-family: "DM Serif Display", serif;
+  color: #8b6f47;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.translator__textarea {
+  width: 100%;
+  min-height: 130px;
+  padding: 1rem;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1rem;
+  color: #37353e;
+  background-color: #fffefe;
+  border: 2px solid #a68a5c;
+  border-radius: 8px;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+.translator__textarea:focus {
+  outline: none;
+  border-color: #8b6f47;
+}
+.translator__textarea--output {
+  background-color: #f7f2e6;
+  cursor: default;
+}
+.translator__textarea--english {
+  font-size: 1rem;
+}
+.translator__textarea--morse {
+  font-size: 2rem;
+}
+.translator__hint {
+  margin-top: 0.1rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+  font-style: italic;
+}
+.translator__hint--underline {
+  text-decoration: underline;
+}
+.translator__detector {
+  text-align: center;
+  margin: 1rem 0;
+}
+.translator__detector-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background-color: #a68a5c;
+  color: #fffefe;
+  transition: background-color 0.3s ease;
+}
+.translator__detector-badge--english {
+  background-color: #5463ff;
+}
+.translator__detector-badge--morse {
+  background-color: #fd8c04;
+  color: #fffefe;
+}
+.translator__detector-badge--mixed {
+  background-color: #dc3c22;
+  color: #fffefe;
+}
+.translator__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .translator {
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 900px;
+  }
+  .translator__textarea {
+    min-height: 130px;
+    font-size: 1.1rem;
+    padding: 1.25rem;
+  }
+  .translator__textarea--english {
+    font-size: 1rem;
+  }
+  .translator__textarea--morse {
+    font-size: 2rem;
+  }
+  .translator__label {
+    font-size: 1.5rem;
+  }
+  .translator__actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+}
+
+.translator__button {
+  padding: 0.875rem 1.5rem;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fffefe;
+  background-color: #8b6f47;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.translator__button--clear {
+  background-color: #a68a5c;
+}
+@media screen and (min-width: 768px) {
+  .translator__button {
+    min-width: 160px;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+}
+
+.info {
+  margin: 3rem 1rem 2rem;
+}
+.info__toggle {
+  width: 100%;
+  padding: 1rem;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.25rem;
+  color: #8b6f47;
+  background-color: #fffefe;
+  border: 2px solid #a68a5c;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.info__content {
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background-color: #fffefe;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px;
+}
+.info__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+.info__row {
+  border-bottom: 1px solid #a68a5c;
+}
+.info__row:last-child {
+  border-bottom: none;
+}
+.info__cell {
+  padding: 0.75rem;
+  text-align: left;
+}
+.info__cell--char {
+  font-weight: 600;
+  color: #8b6f47;
+  width: 30%;
+}
+.info__cell--morse {
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: #37353e;
+  letter-spacing: 0.1em;
+}
+@media screen and (min-width: 768px) {
+  .info {
+    margin: 4rem auto 3rem;
+    max-width: 900px;
+  }
+  .info__toggle {
+    font-size: 1.5rem;
+    padding: 1.25rem;
+  }
+  .info__content {
+    padding: 2rem;
+  }
+  .info__cell {
+    padding: 1rem;
+  }
+  .info__cell--morse {
+    font-size: 1.25rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,11 +1,30 @@
-$font-heading: "DM Serif Display", serif;
-$font-body: "IBM Plex Sans", sans-serif;
-// $font-body: "Playfair Display", serif;
-$font-logo: "Meddon", cursive;
-$color-bg: #f4cee3;
-$color-bg-light: #f8e2ee;
-$color-blur: #b79aaa;
+// Palette
+$color-bg:       #FFFBEF;
+$color-bg-warm:  #FBF1DA;
+$color-ink:      #0E0E10;
+$color-ink-soft: #2A2A2E;
+$color-muted:    #6E6A60;
+$color-pink:     #FFC2D4;
+$color-pink-2:   #FFA8C0;
+$color-yellow:   #FFE07A;
+$color-mint:     #B8F2D8;
+$color-lilac:    #D7C4FF;
+$color-peach:    #FFD0A8;
+$color-sky:      #BEE3F8;
+$color-dark:     #15141A;
 
-$color-heading: #d24720;
-$color-text: #222831;
-$color-blurtext: #ac1703;
+// Brutalist primitives
+$border-w:  2.5px;
+$border:    $border-w solid $color-ink;
+$shadow:    6px 6px 0 $color-ink;
+$shadow-lg: 10px 10px 0 $color-ink;
+$shadow-sm: 4px 4px 0 $color-ink;
+$radius:    14px;
+$radius-lg: 22px;
+
+// Typography
+$font-sans:  'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+$font-serif: 'Instrument Serif', 'Times New Roman', serif;
+
+// Layout
+$container: 1180px;

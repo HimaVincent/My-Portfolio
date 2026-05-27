@@ -1,0 +1,82 @@
+@use "variables" as var;
+@use "media-queries" as q;
+
+.info {
+  margin: 3rem 1rem 2rem;
+
+  &__toggle {
+    width: 100%;
+    padding: 1rem;
+    font-family: var.$font-heading;
+    font-size: 1.25rem;
+    color: var.$color-heading;
+    background-color: var.$color-bg-light;
+    border: 2px solid var.$color-text;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  &__content {
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background-color: var.$color-bg-light;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var.$color-shadow 0px 2px 8px;
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var.$font-body;
+  }
+
+  &__row {
+    border-bottom: 1px solid var.$color-text;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__cell {
+    padding: 0.75rem;
+    text-align: left;
+
+    &--char {
+      font-weight: 600;
+      color: var.$color-heading;
+      width: 30%;
+    }
+
+    &--morse {
+      font-family: monospace;
+      font-size: 1.1rem;
+      color: var.$color-dark;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  @include q.laptop {
+    margin: 4rem auto 3rem;
+    max-width: 900px;
+
+    &__toggle {
+      font-size: 1.5rem;
+      padding: 1.25rem;
+    }
+
+    &__content {
+      padding: 2rem;
+    }
+
+    &__cell {
+      padding: 1rem;
+
+      &--morse {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

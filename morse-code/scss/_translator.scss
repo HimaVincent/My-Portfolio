@@ -1,0 +1,133 @@
+@use "variables" as var;
+@use "media-queries" as q;
+
+.translator {
+  background-color: var.$color-bg-light;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 1rem;
+  box-shadow: 0 2px 8px var.$color-shadow;
+
+  &__input-wrapper,
+  &__output-wrapper {
+    margin-bottom: 1.5rem;
+  }
+
+  &__label {
+    display: block;
+    font-family: var.$font-heading;
+    color: var.$color-heading;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: 130px;
+    padding: 1rem;
+    font-family: var.$font-body;
+    font-size: 1rem;
+    color: var.$color-dark;
+    background-color: var.$color-bg-light;
+    border: 2px solid var.$color-text;
+    border-radius: 8px;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var.$color-heading;
+    }
+
+    &--output {
+      background-color: var.$color-bg;
+      cursor: default;
+    }
+
+    &--english {
+      font-size: 1rem;
+    }
+
+    &--morse {
+      font-size: 2rem;
+    }
+  }
+
+  &__hint {
+    margin-top: 0.1rem;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    font-style: italic;
+  }
+
+  &__hint--underline {
+    text-decoration: underline;
+  }
+
+  &__detector {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  &__detector-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    background-color: var.$color-text;
+    color: var.$color-bg-light;
+    transition: background-color 0.3s ease;
+
+    &--english {
+      background-color: var.$color-english;
+    }
+
+    &--morse {
+      background-color: var.$color-morse;
+      color: var.$color-bg-light;
+    }
+
+    &--mixed {
+      background-color: var.$color-mixed;
+      color: var.$color-bg-light;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  @include q.laptop {
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 900px;
+
+    &__textarea {
+      min-height: 130px;
+      font-size: 1.1rem;
+      padding: 1.25rem;
+    }
+
+    &__textarea--english {
+      font-size: 1rem;
+    }
+
+    &__textarea--morse {
+      font-size: 2rem;
+    }
+
+    &__label {
+      font-size: 1.5rem;
+    }
+
+    &__actions {
+      flex-direction: row;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+  }
+}
